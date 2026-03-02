@@ -1,198 +1,78 @@
-
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LL — Página Inicial</title>
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#000000">
-  <meta name="description" content="Um modelo simples, responsivo e personalizável de site em HTML, CSS e JavaScript." />
-
-  <style>
-    /* Reset simples */
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;line-height:1.5;color:#000000;background:#ffffff}
-
-    /* Container */
-    .container{max-width:1100px;margin:0 auto;padding:28px}
-
-    /* Header */
-    header{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:48px;height:48px;background:linear-gradient(135deg,#3aff44,#000000);border-radius:12px;display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
-    nav a{margin-left:18px;text-decoration:none;color:inherit;font-weight:600}
-
-    /* Hero */
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:36px 0}
-    .hero h1{font-size:clamp(28px,5vw,44px);margin-bottom:10px}
-    .hero p{color:#000000;margin-bottom:18px}
-    .cta{display:inline-block;padding:12px 18px;border-radius:10px;background:#33ff44;color:#ffffff;text-decoration:none;font-weight:700}
-
-    /* Card preview */
-    .card{background:#e6e6e6;border-radius:12px;padding:18px;box-shadow:0 6px 20px rgba(35, 255, 46, 0.06)}
-    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:28px 0}
-    .feature{background:#e6e6e6;border-radius:10px;padding:14px;text-align:center;box-shadow:0 4px 14px rgba(16,24,40,0.04)}
-    .feature h3{margin:8px 0}
-
-    /* Form */
-    form{background:#e6e6e6;padding:18px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.06)}
-    label{display:block;margin:8px 0 6px;font-size:14px}
-    input[type=text],input[type=email],textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #ffffff}
-    textarea{min-height:110px}
-    .row{display:flex;gap:12px}
-
-    /* Footer */
-    footer{margin-top:36px;padding:28px 0;color:#000000;text-align:center}
-
-    /* Responsividade */
-    @media (max-width:880px){
-      .hero{grid-template-columns:1fr;}
-      .features{grid-template-columns:repeat(2,1fr)}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+<style>
+ body{
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+        
+        background-image: url('https://portuguese.people.com.cn/NMediaFile/2022/0313/FOREIGN202203131609000535170378691.jpg');
+        background-size: cover;
+        background-position: center;
     }
-    @media (max-width:480px){
-      .features{grid-template-columns:1fr}
-      nav a{display:none}
+    /* Classe do Formulário*/
+    .formulario {
+        background: rgba(255, 255, 255, 08);
+        padding:30px;
+        border-radius: 12px;
+        width:300px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0,3);
+        
+        /*Animação de Entrada Horizontal*/
+        transform: translateX(-400px);
+        animation: slideln 3s forwards;
+    }
+    .formulario h1{
+        text-align: center;
     }
 
-    /* Dark mode (toggle via JS) */
-    body.dark{background:#363636;color:#e6eef8}
-    body.dark .card, body.dark .feature, body.dark form{background:#071025;color:inherit}
-    body.dark .logo{background:linear-gradient(135deg,#47ff56,#86ff56)}
-    .toggle{cursor:pointer;padding:6px 10px;border-radius:8px;border:1px solid #ddd}
-    body.dark .toggle{border-color:#4cff46}
-  </style>
+    .formulario input {
+        width: 90%;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+    }
+    .formulario button {
+        width: 100px;
+        padding: 10px;
+        border: none;
+        border-radius: 6px;
+        background-color: rgb(0, 83, 238);
+        color: white;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .formulario button:hover {
+        background-color: aquamarine;
+    }
+    /*Animação*/
+    @keyframes slideln {
+        to{
+            transform: translateX(0);
+        }
+    }
+</style>
+
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="logo">ME</div>
-        <div>
-          <div style="font-weight:800">Meu Site</div>
-          <div style="font-size:12px;color:#666">Um template simples em HTML/CSS/JS</div>
-        </div>
-      </div>
-
-      <div style="display:flex;align-items:center;gap:12px">
-        <nav>
-          <a href="#features">Recursos</a>
-          <a href="#projects">Projetos</a>
-          <a href="#contact">Contato</a>
-        </nav>
-        <button class="toggle" id="themeToggle">Alternar tema</button>
-      </div>
-    </header>
-
-    <main>
-      <section class="hero">
-        <div>
-          <h1>Customize seu carro aqui conosco!</h1>
-          <p>Entre em contato consco caso queira customizar seu carro. Deixe seu número explicito na sua mensagem para podermos entrar em contato.</p>
-          <a class="cta" href="#contact">Entrar em contato</a>
-
-          <div class="features" id="features" style="margin-top:22px">
-            <div class="feature">
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l3 6 6 .5-4.5 3 1.5 6L12 15l-6 3 1.5-6L3 8.5 9 8 12 2z" stroke="currentColor" stroke-width="0.8"/></svg>
-              <h3>Designs</h3>
-              <p style="font-size:13px;color:#666">Designs totalmente criativos e bem feitos.</p>
-            </div>
-
-            <div class="feature">
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="currentColor" stroke-width="0.8"/></svg>
-              <h3>Equipe</h3>
-              <p style="font-size:13px;color:#666">Equipe totalmente capacitada e refinada.</p>
-            </div>
-
-            <div class="feature">
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="0.8"/></svg>
-              <h3>Estrutura</h3>
-              <p style="font-size:13px;color:#666">Estrutura totalmente planejada para que nosso trabalho tenha o máximo de conforto e a melhor entrega para você.</p>
-            </div>
-          </div>
-        </div>
-
-        <aside class="card">
-          <h3>Informações Rápidas</h3>
-          <p style="color:#555;font-size:14px">Trabalhamos com todo tipo de carros mas principalmente os carros esportivos e de luxo.</p>
-          <div style="display:flex;gap:8px;margin-top:12px">
-            <a class="cta" href="#contact" style="background:#3aff5b">Contratar</a>
-            <a class="cta" href="#projects" style="background:#fff;color:#111;border:1px solid #34ff67">Ver projetos</a>
-          </div>
-        </aside>
-      </section>
-
-      <section id="projects">
-        <h2 style="margin-top:6px;margin-bottom:10px">Alguns de nossos Projetos</h2>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
-          <div class="card"> 
-            <strong>Bmw M3 GTR</strong>
-            <p style="font-size:13px;color:#666;margin-top:8px">A BMW M3 GTR é uma versão raríssima e icônica da M3, criada para corridas no início dos anos 2000. Equipada com um motor V8 4.0 de cerca de 500 cv, ficou famosa pelo desempenho nas pistas e pela exclusividade, já que pouquíssimas unidades de rua foram produzidas.</p>
-          </div>
-          <div class="card"> 
-            <strong>Mclaren P1</strong>
-            <p style="font-size:13px;color:#666;margin-top:8px">A McLaren P1 é um hipercarro híbrido lançado em 2013, equipado com um motor V8 biturbo 3.8 litros aliado a um sistema elétrico, somando 916 cv. Com design futurista e foco aerodinâmico, acelera de 0 a 100 km/h em cerca de 2,8 segundos* e tem velocidade máxima limitada a 350 km/h. É considerada um dos hipercarros mais avançados e exclusivos do mundo.</p>
-          </div>
-          <div class="card"> 
-            <strong>Lamborghini Gallardo</strong>
-            <p style="font-size:13px;color:#666;margin-top:8px">A Lamborghini Gallardo é um dos modelos mais famosos da marca italiana, produzida entre 2003 e 2013. Equipada com um motor V10, entregava potências que variavam de 500 a mais de 560 cv, dependendo da versão. Com design agressivo e desempenho marcante, foi um dos carros mais vendidos da Lamborghini e um verdadeiro ícone da década.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" style="margin-top:26px">
-        <h2>Contato</h2>
-        <form onsubmit="handleSubmit(event)">
-          <label for="name">Nome</label>
-          <input id="name" type="text" placeholder="Seu nome" required />
-
-          <label for="email">E‑mail</label>
-          <input id="email" type="email" placeholder="seu@exemplo.com" required />
-
-          <label for="message">Mensagem</label>
-          <textarea id="message" placeholder="Escreva sua mensagem..."></textarea>
-
-          <div style="margin-top:12px;display:flex;gap:10px;align-items:center">
-            <button type="submit" class="cta">Enviar</button>
-            <div id="formStatus" style="font-size:14px;color:#48ff52"></div>
-          </div>
-        </form>
-      </section>
-    </main>
-
-    <footer>
-      <div>© <span id="year"></span> — Criado para você nosso cliente</div>
-    </footer>
-  </div>
-
-  <script>
-    // Data simples
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Tema escuro
-    const btn = document.getElementById('themeToggle');
-    btn.addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-    });
-
-    // Formulário (apenas demo — substitua pela sua API ou serviço de e-mail)
-    function handleSubmit(e){
-      e.preventDefault();
-      const status = document.getElementById('formStatus');
-      status.textContent = 'Enviando...';
-
-      // Simula envio
-      setTimeout(()=>{
-        status.textContent = 'Mensagem enviada com sucesso! Obrigado.';
-        e.target.reset();
-      },850);
-    }
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js")
-      .then(() => console.log("Service Worker registrado com sucesso."))
-      .catch(error => console.log("Falha ao registrar Service Worker:", error));
-    }
-  </script>
+    <form class="formulario">
+        <h1>Login</h1>
+        <input type="text"
+        placeholder="Usuário"
+        required>
+        <input type="password"
+        placeholder="senha" required>
+        <button
+        type="submit">Entrar</button>
+    </form>
 </body>
 </html>
