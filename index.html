@@ -5,74 +5,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-<style>
- body{
-        margin: 0;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: Arial, Helvetica, sans-serif;
-        
-        background-image: url('https://portuguese.people.com.cn/NMediaFile/2022/0313/FOREIGN202203131609000535170378691.jpg');
-        background-size: cover;
-        background-position: center;
-    }
-    /* Classe do Formulário*/
-    .formulario {
-        background: rgba(255, 255, 255, 08);
-        padding:30px;
-        border-radius: 12px;
-        width:300px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0,3);
-        
-        /*Animação de Entrada Horizontal*/
-        transform: translateX(-400px);
-        animation: slideln 3s forwards;
-    }
-    .formulario h1{
-        text-align: center;
-    }
-
-    .formulario input {
-        width: 90%;
-        padding: 10px;
-        margin: 10px;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-    }
-    .formulario button {
-        width: 100px;
-        padding: 10px;
-        border: none;
-        border-radius: 6px;
-        background-color: rgb(0, 83, 238);
-        color: white;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-    .formulario button:hover {
-        background-color: aquamarine;
-    }
-    /*Animação*/
-    @keyframes slideln {
-        to{
-            transform: translateX(0);
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url(img/galo.jpg);
+            background-size: cover;
+            background-position: center;
         }
-    }
-</style>
+        /* Classe do Formulário*/
+        
+        .formulario {
+            background: rgba(216, 216, 216, 0.459);
+            padding: 30px;
+            border-radius: 12px;
+            width: 300px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0, 3);
+            /*Animação de Entrada Horizontal*/
+            transform: translateX(-400px);
+            animation: slideln 3s forwards;
+        }
+        
+        .formulario h1 {
+            text-align: center;
+        }
+        
+        .formulario input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        
+        .formulario button {
+            text-align: center;
+            width: 100px;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .formulario button:hover {
+            background-color: rgb(255, 153, 0);
+        }
+        /*Animação*/
+        
+        @keyframes slideln {
+            to {
+                transform: translateX(0);
+            }
+        }
+    </style>
 
 </head>
+
 <body>
-    <form class="formulario">
+
+    <form class="formulario" onsubmit="return validarLogin()">
         <h1>Login</h1>
-        <input type="text"
-        placeholder="Usuário"
-        required>
-        <input type="password"
-        placeholder="senha" required>
-        <button
-        type="submit">Entrar</button>
+
+        <input type="text" id="usuario" placeholder="Usuário"><br><br>
+        <input type="password" id="senha" placeholder="Senha"><br><br>
+
+        <button type="submit">Entrar</button>
     </form>
+
+
+    <script>
+        /*validar usuário e senha*/
+        function validarLogin() {
+            var usuario = document.getElementById("usuario").value;
+            var senha = document.getElementById("senha").value;
+
+            /*comparar o usuário e a senha*/
+            if (usuario === "admin" && senha === "1234") {
+                window.location.href = "pagina2.html";
+                return false;
+            } else {
+                alert("Usuário ou senha incorretos");
+                return false;
+            }
+        }
+    </script>
 </body>
+
 </html>
