@@ -3,10 +3,47 @@
 
 <head>
     <title>Página 2</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url(img/Hulk.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+            
+        .botao button{
+            text-align: center;
+            width: 100px;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        /*Animação*/
+        
+        @keyframes slideln {
+            to {
+                transform: translateX(0);
+            }
+}
+
+    </style>
 
 </head>
 
 <body>
+    
+    <a href="pagina3.html">
+    <button>Próximo</button>
+    </a>
 
     <h1>Bem-Vindo! Login realizado com Sucesso.</h1>
 </body>
